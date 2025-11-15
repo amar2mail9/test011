@@ -61,12 +61,7 @@ export const CardPopularBlog = ({ blog }) => {
                 </div>
             </div>
 
-            {/* Blog Content (Flexible Height) */}
-            {/* KEY CHANGE: 
-                h-[250px] ko hata diya.
-                Ise 'flex-1' aur 'flex-col' banaya taaki yeh available space le le
-                aur 'mt-auto' views/date ko neeche push kar de.
-            */}
+
             <div className="p-5 flex flex-col flex-1">
                 {/* Title and Summary Wrapper */}
                 <div>
@@ -111,7 +106,7 @@ export const CardPopularBlog = ({ blog }) => {
 
                 {/* Read More link with animated arrow */}
                 <Link
-                    href={`/blog/${blog.id}`}
+                    href={`/blog/${blog.slug}`}
                     className="ml-auto text-sm text-blue-400 hover:text-blue-300 transition-colors font-medium flex items-center gap-1"
                 >
                     Read More

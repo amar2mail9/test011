@@ -213,7 +213,7 @@ export const SignUpForm = () => {
 
                     <button
                         type="submit"
-                        className="w-full py-3 mt-8 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-semibold rounded-lg shadow-lg hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-emerald-400/40 transition"
+                        className="w-full py-3 mt-8 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-emerald-400/40 transition"
                     >
                         Verify OTP
                     </button>

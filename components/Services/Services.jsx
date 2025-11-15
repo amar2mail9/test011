@@ -9,8 +9,11 @@ import {
   FaCloud,
   FaPalette,
 } from "react-icons/fa";
+import Link from "next/link";
+
 
 const Services = () => {
+
   const services = [
     {
       title: "Web Development",
@@ -49,7 +52,6 @@ const Services = () => {
       color: "#ff4db8",
     },
   ];
-
   return (
     <div className="relative w-full overflow-hidden bg-gray-50 py-24">
       {/* Light background glows */}
@@ -80,31 +82,32 @@ const Services = () => {
       {/* 🔷 Services Grid */}
       <section className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 mt-16 max-w-7xl mx-auto">
         {services.map((srv, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            whileHover={{
-              scale: 1.05,
-              y: -8, // Lifts the card up
-              boxShadow: `0px 10px 30px ${srv.color}40`, // Uses the service color for shadow
-            }}
-            className="flex flex-col items-center text-center p-8 rounded-2xl 
+          <Link href={`/services/${srv?.slug}`} key={index}>
+            <motion.div
+
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{
+                scale: 1.05,
+                y: -8, // Lifts the card up
+                boxShadow: `0px 10px 30px ${srv.color}40`, // Uses the service color for shadow
+              }}
+              className="flex flex-col items-center text-center p-8 rounded-2xl 
                        bg-white border border-gray-200 shadow-lg
                        transition-all duration-300"
-          >
-            <span
-              className="text-5xl mb-4 drop-shadow-lg"
-              style={{ color: srv.color }}
             >
-              {srv.icon}
-            </span>
-            <h2 className="text-xl font-semibold mb-3 text-gray-900">
-              {srv.title}
-            </h2>
-            <p className="text-gray-600 text-sm leading-relaxed">{srv.desc}</p>
-          </motion.div>
+              <span
+                className="text-5xl mb-4 drop-shadow-lg"
+                style={{ color: srv.color }}
+              >
+                {srv.icon}
+              </span>
+              <h2 className="text-xl font-semibold mb-3 text-gray-900">
+                {srv.title}
+              </h2>
+              <p className="text-gray-600 text-sm leading-relaxed">{srv.desc}</p>
+            </motion.div></Link>
         ))}
       </section>
     </div>

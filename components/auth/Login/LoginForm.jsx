@@ -43,7 +43,7 @@ const LoginForm = () => {
             }
 
             toast.success("Login Successful");
-            Cookies.set("token", data.token);
+            Cookies.set("token", data.user.token);
             localStorage.setItem("user", JSON.stringify(data.user));
             router.push("/");
         } catch (err) {
@@ -116,7 +116,7 @@ const LoginForm = () => {
             }
 
             toast.success("OTP Verified!");
-            Cookies.set("token", data.token);
+            Cookies.set("token", data.user.token);
             localStorage.setItem("user", JSON.stringify(data.user));
             router.push("/");
 
@@ -167,7 +167,7 @@ const LoginForm = () => {
                             <button
                                 type="submit"
                                 onClick={loginWithPassword}
-                                className="w-full py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold"
+                                className="w-full text-white py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold"
                             >
                                 Login
                             </button>
@@ -175,7 +175,7 @@ const LoginForm = () => {
                             <button
                                 type="submit"
                                 onClick={sendOTP}
-                                className="w-full py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold"
+                                className="w-full py-3 bg-gradient-to-r from-emerald-500 text-white to-cyan-500 rounded-lg font-semibold"
                             >
                                 Send OTP
                             </button>
@@ -216,7 +216,7 @@ const LoginForm = () => {
 
                         <button
                             type="submit"
-                            className="w-full py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold"
+                            className="w-full py-3 bg-gradient-to-r from-emerald-500 text-white to-cyan-500 rounded-lg font-semibold"
                         >
                             Verify OTP
                         </button>

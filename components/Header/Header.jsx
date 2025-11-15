@@ -86,8 +86,8 @@ const Header = () => {
                     href={menu.link}
                     key={idx}
                     className={`${isActive
-                        ? "text-[#00cba9]"
-                        : "text-gray-600 hover:text-[#00cba9] transition-colors"
+                      ? "text-[#00cba9]"
+                      : "text-gray-600 hover:text-[#00cba9] transition-colors"
                       } capitalize`}
                   >
                     {menu.name}
@@ -165,16 +165,27 @@ const Header = () => {
             <div className="w-full h-full flex items-center">
               <div className="w-[70%] h-full bg-white shadow-2xl border-r border-gray-200 slideIn">
                 {/* Logo */}
-                <div className="w-full p-4 flex justify-center border-b border-gray-200">
-                  <img
-                    src="/l-logo.png"
-                    alt="Kraviona"
-                    className="w-[80%] mx-auto"
-                  />
+                <div className="w-full p-4 flex justify-start border-b border-gray-200">
+                  <div className="md:w-[190px] w-16">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src="/favicon.ico"
+                        alt="Kraviona"
+                        loading="lazy"
+                        className="w-10 h-10 object-contain"
+                      />
+                      <div className="flex flex-col leading-tight">
+                        <p className="text-gray-900 text-lg font-semibold">Kraviona</p>
+                        <small className="text-gray-500 md:text-xs text-[10px]">
+                          IT Web Solutions
+                        </small>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Menu Items */}
-                <div className="flex flex-col gap-3 mt-4 text-gray-700">
+                <div className="flex flex-col  gap-3  text-gray-700">
                   {menuList.map((menu, idx) => {
                     const isActive = locationMatch === menu.link;
                     return (
@@ -189,6 +200,28 @@ const Header = () => {
                       </Link>
                     );
                   })}
+
+                  {
+                    isLoggedIn ? (
+                      <button
+                        onClick={() => {
+                          handleLogout();
+                          setOpenToggle(false);
+                        }}
+                        className="w-full block text-center bg-rose-400 hover:bg-rose-500 px-8 py-3 text-white  font-semibold transition-all"
+                      >
+                        Logout
+                      </button>
+                    ) : (
+                      <Link
+                        href="/login"
+                        className="w-full block text-center bg-[#00cba9] hover:bg-[#009e8b] px-8 py-3 text-white  font-semibold transition-all"
+                        onClick={() => setOpenToggle(false)}
+                      >
+                        Login
+                      </Link>
+                    )
+                  }
                 </div>
               </div>
 
